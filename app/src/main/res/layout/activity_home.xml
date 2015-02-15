@@ -1,4 +1,231 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:id="@+id/container"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    tools:context=".HomeActivity" tools:ignore="MergeRootFrame" />
+    tools:context=".HomeActivity" tools:ignore="MergeRootFrame" >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_horizontal|top"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/app_name"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="25dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/coordinate_system_title"
+                android:id="@+id/lblCoordinateSystem" />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/rdbGroup"
+                android:gravity="clip_horizontal">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rdb_cartesian_title"
+                    android:id="@+id/rdbCartesian"
+                    android:checked="true"
+                    android:onClick="changeToCartesianClick" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rdb_polar_title"
+                    android:id="@+id/rdbPolar"
+                    android:checked="false"
+                    android:onClick="changeToPolarClick" />
+
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/vector1_a"
+                    android:layout_weight="1"
+                    android:layout_margin="15dp"
+                    android:hint="@string/hint_x"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textIsSelectable="false" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/vector1_b"
+                    android:layout_weight="1"
+                    android:layout_margin="15dp"
+                    android:hint="@string/hint_y"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textIsSelectable="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" >
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/vector2_a"
+                    android:layout_weight="1"
+                    android:layout_margin="15dp"
+                    android:hint="@string/hint_x"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textIsSelectable="false" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/vector2_b"
+                    android:layout_weight="1"
+                    android:layout_margin="15dp"
+                    android:hint="@string/hint_y"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textIsSelectable="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone"
+                android:id="@+id/thirdVector">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/vector3_a"
+                    android:layout_weight="1"
+                    android:layout_margin="15dp"
+                    android:hint="@string/hint_x"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textIsSelectable="false" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/vector3_b"
+                    android:layout_weight="1"
+                    android:layout_margin="15dp"
+                    android:hint="@string/hint_y"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textIsSelectable="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical|right">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/new_vector_label"
+                    android:id="@+id/btn_add_vector"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="25dp"
+                    android:onClick="addThirdVectorClick" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/scalar_labal"
+                android:id="@+id/btnScalar"
+                android:layout_margin="25dp"
+                android:onClick="computeScalarProductClick" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/vector_label"
+                android:id="@+id/btn_vector"
+                android:layout_margin="20dp"
+                android:onClick="computeVectorProductClick" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/textView2"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/result_label"
+            android:visibility="invisible" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_label"
+            android:id="@+id/button3"
+            android:layout_gravity="center_horizontal"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+</FrameLayout>

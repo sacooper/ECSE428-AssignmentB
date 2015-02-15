@@ -4,5 +4,17 @@
     <string name="app_name">Vector Calculator</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+    <string name="switch_title">Coordinates</string>
+    <string name="rdb_cartesian_title">Cartesian</string>
+    <string name="rdb_polar_title">Polar</string>
+    <string name="coordinate_system_title">Coordinate System:</string>
+    <string name="scalar_labal">Scalar Product</string>
+    <string name="vector_label">Vector Product</string>
+    <string name="hint_x">x</string>
+    <string name="hint_y">y</string>
+    <string name="hint_r">r</string>
+    <string name="hint_theta">Θ</string>
+    <string name="view_label">View Vector</string>
+    <string name="result_label">Result:</string>
+    <string name="new_vector_label">New Vector</string>
 </resources>
