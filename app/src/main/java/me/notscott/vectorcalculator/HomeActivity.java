@@ -1,26 +1,36 @@
 package me.notscott.vectorcalculator;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
-public class HomeActivity extends ActionBarActivity {
+public class HomeActivity extends Activity {
+    private AdapterView.OnItemSelectedListener itemClickListener;
+    private Operation currentOperation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-    }
 
+        itemClickListener = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                currentOperation = Operation.fromInt(position);
+                changeVisibility(currentOperation);
+            }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_home, menu);
-        return true;
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        };
+
+        Spinner operations = (Spinner) findViewById(R.id.operation);
+        operations.setOnItemSelectedListener(itemClickListener);
     }
 
     @Override
@@ -56,12 +66,17 @@ public class HomeActivity extends ActionBarActivity {
         ((TextView)findViewById(R.id.vector3_b)).setHint(R.string.hint_y);
     }
 
-    public void computeScalarProductClick(View v){
-
-    }
-
-    public void computeVectorProductClick(View v){
-
+    private void changeVisibility(Operation o){
+        switch (o){
+            case ADDITION:
+                findViewById(R.id.btn_add_vector).setVisibility(View.VISIBLE);
+                findViewById(R.id.thirdVector).setVisibility(View.GONE);
+                break;
+            default:
+                findViewById(R.id.btn_add_vector).setVisibility(View.GONE);
+                findViewById(R.id.thirdVector).setVisibility(View.GONE);
+                break;
+        }
     }
 
     public void addThirdVectorClick(View v){
@@ -69,5 +84,9 @@ public class HomeActivity extends ActionBarActivity {
             v.setVisibility(View.GONE);
             findViewById(R.id.thirdVector).setVisibility(View.VISIBLE);
         }
+    }
+
+    public void computeResult(View v){
+
     }
 }

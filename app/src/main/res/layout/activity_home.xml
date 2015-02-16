@@ -61,6 +61,29 @@
         </LinearLayout>
 
         <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/operation_label"
+                android:id="@+id/textView3" />
+
+            <Spinner
+                android:layout_width="161dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/operation"
+                android:spinnerMode="dropdown"
+                android:entries="@array/operationEntries"
+                android:focusable="false"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -186,35 +209,19 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/label_compute"
+            android:id="@+id/button"
             android:layout_gravity="center_horizontal"
-            android:gravity="center">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/scalar_labal"
-                android:id="@+id/btnScalar"
-                android:layout_margin="25dp"
-                android:onClick="computeScalarProductClick" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/vector_label"
-                android:id="@+id/btn_vector"
-                android:layout_margin="20dp"
-                android:onClick="computeVectorProductClick" />
-        </LinearLayout>
+            android:onClick="computeResult" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/textView2"
+            android:id="@+id/lblResult"
             android:layout_gravity="center_horizontal"
             android:text="@string/result_label"
             android:visibility="invisible" />
@@ -223,7 +230,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/view_label"
-            android:id="@+id/button3"
+            android:id="@+id/btnView"
             android:layout_gravity="center_horizontal"
             android:visibility="invisible" />
 

@@ -8,8 +8,6 @@
     <string name="rdb_cartesian_title">Cartesian</string>
     <string name="rdb_polar_title">Polar</string>
     <string name="coordinate_system_title">Coordinate System:</string>
-    <string name="scalar_labal">Scalar Product</string>
-    <string name="vector_label">Vector Product</string>
     <string name="hint_x">x</string>
     <string name="hint_y">y</string>
     <string name="hint_r">r</string>
@@ -17,4 +15,11 @@
     <string name="view_label">View Vector</string>
     <string name="result_label">Result:</string>
     <string name="new_vector_label">New Vector</string>
+    <string name="operation_label">Operation:</string>
+    <string name="label_compute">Compute Result</string>
+    <string-array name="operationEntries">
+        <item>"Addition"</item>
+        <item>"Scalar Product"</item>
+        <item>"Vector Product</item>
+    </string-array>
 </resources>
