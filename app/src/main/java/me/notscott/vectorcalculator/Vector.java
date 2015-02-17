@@ -4,6 +4,9 @@ package me.notscott.vectorcalculator;
  * Vector class
  */
 public class Vector {
+    public static final String POLAR_FORMAT = "<%.2f, ∠%.2f>";
+    public static final String CARTESIAN_FORMAT = "<%.2f, %.2f>";
+
     private double x, y;
 
     /***
@@ -24,7 +27,7 @@ public class Vector {
      * @param y Y Component
      * @return The resulting vector
      */
-    public Vector fromCartesian(double x, double y){
+    public static Vector fromCartesian(double x, double y){
         return new Vector(x, y);
     }
 
@@ -34,7 +37,7 @@ public class Vector {
      * @param theta Angle
      * @return The resulting vector
      */
-    public Vector fromPolar(double r, double theta){
+    public static Vector fromPolar(double r, double theta){
         double x = r * Math.cos(theta);
         double y = r * Math.sin(theta);
         return new Vector(x, y);
@@ -74,7 +77,7 @@ public class Vector {
      * @return A string representation of this vector in cartesian coordinates
      */
     public String asCartesian(){
-        return "<" + this.getX() + ", " + this.getY() + ">";
+        return String.format(CARTESIAN_FORMAT, this.getX(), this.getY());
     }
 
     /***
@@ -82,7 +85,8 @@ public class Vector {
      * @return This vector as a string in polar coordinates
      */
     public String asPolar(){
-        return "<" + this.getR() + ", ∠" + this.getTheta() + ">";
+//        return "<" + this.getR() + ", ∠" + this.getTheta() + ">";
+        return String.format(POLAR_FORMAT, this.getR(), this.getTheta());
     }
 
     /***
