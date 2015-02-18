@@ -9,6 +9,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
 
 public class HomeActivity extends Activity {
     private AdapterView.OnItemSelectedListener itemClickListener;
@@ -22,8 +23,7 @@ public class HomeActivity extends Activity {
         itemClickListener = new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                currentOperation = Operation.fromInt(position);
-                changeVisibility(currentOperation);
+
             }
 
             @Override
@@ -50,49 +50,45 @@ public class HomeActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    /***
+     * User chooses units as "Polar"
+     * @param v View that was clicked
+     */
     public void changeToPolarClick(View v){
-        ((TextView)findViewById(R.id.vector1_a)).setHint(R.string.hint_r);
-        ((TextView)findViewById(R.id.vector2_a)).setHint(R.string.hint_r);
-        ((TextView)findViewById(R.id.vector3_a)).setHint(R.string.hint_r);
-        ((TextView)findViewById(R.id.vector1_b)).setHint(R.string.hint_theta);
-        ((TextView)findViewById(R.id.vector2_b)).setHint(R.string.hint_theta);
-        ((TextView)findViewById(R.id.vector3_b)).setHint(R.string.hint_theta);
+        throw new UnsupportedOperationException("Not Implemented");
     }
 
+    /***
+     * User chooses units as "Cartesian"
+     * @param v View that was clicked
+     */
     public void changeToCartesianClick(View v){
-        ((TextView)findViewById(R.id.vector1_a)).setHint(R.string.hint_x);
-        ((TextView)findViewById(R.id.vector2_a)).setHint(R.string.hint_x);
-        ((TextView)findViewById(R.id.vector3_a)).setHint(R.string.hint_x);
-        ((TextView)findViewById(R.id.vector1_b)).setHint(R.string.hint_y);
-        ((TextView)findViewById(R.id.vector2_b)).setHint(R.string.hint_y);
-        ((TextView)findViewById(R.id.vector3_b)).setHint(R.string.hint_y);
+        throw new UnsupportedOperationException("Not Implemented");
     }
 
+    /***
+     *
+     * @param o
+     */
     private void changeVisibility(Operation o){
-        switch (o){
-            case ADDITION:
-                findViewById(R.id.btnAddVector).setVisibility(View.VISIBLE);
-                findViewById(R.id.thirdVector).setVisibility(View.GONE);
-                break;
-            default:
-                findViewById(R.id.btnAddVector).setVisibility(View.GONE);
-                findViewById(R.id.thirdVector).setVisibility(View.GONE);
-                break;
-        }
+        throw new UnsupportedOperationException("Not Implemented");
     }
 
     public void addThirdVectorClick(View v){
-        if(v.getId() == R.id.btnAddVector){
-            v.setVisibility(View.GONE);
-            findViewById(R.id.thirdVector).setVisibility(View.VISIBLE);
-        }
+        throw new UnsupportedOperationException("Not Implemented");
     }
 
-    public Vector getInput() throws InvalidParameterException {
-        return null;
+    /***
+     * Get Vectors input by user
+     *
+     * @return An ArrayList of vectors input by the user (in order)
+     * @throws InvalidParameterException Thrown on invalid input. Any UI changes should be handled by caller
+     */
+    public ArrayList<Vector> getInput() throws InvalidParameterException {
+        throw new UnsupportedOperationException("Not Implemented");
     }
 
     public void computeResult(View v){
-
+        throw new UnsupportedOperationException("Not Implemented");
     }
 }

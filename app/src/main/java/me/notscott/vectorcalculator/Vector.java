@@ -28,7 +28,7 @@ public class Vector {
      * @return The resulting vector
      */
     public static Vector fromCartesian(double x, double y){
-        return new Vector(x, y);
+        throw new UnsupportedOperationException("Not Implemented");
     }
 
     /*****
@@ -38,9 +38,7 @@ public class Vector {
      * @return The resulting vector
      */
     public static Vector fromPolar(double r, double theta){
-        double x = r * Math.cos(theta);
-        double y = r * Math.sin(theta);
-        return new Vector(x, y);
+        throw new UnsupportedOperationException("Not Implemented");
     }
 
     /****
@@ -50,7 +48,7 @@ public class Vector {
      * @return The value of the dot product of this and v2
      */
     public double computeScalarProduct(Vector v2){
-        return this.getX() * v2.getX() + this.getY() * v2.getY();
+        throw new UnsupportedOperationException("Not Implemented");
     }
 
     /*****
@@ -60,7 +58,7 @@ public class Vector {
      * @return The value of z component of the resuling vector
      */
     public double computeCrossProduct(Vector v2){
-        return this.getX() * v2.getY() - this.getY() * v2.getX();
+        throw new UnsupportedOperationException("Not Implemented");
     }
 
     /****
@@ -69,7 +67,7 @@ public class Vector {
      * @return The resulting vector
      */
     public Vector add(Vector v2){
-        return new Vector(this.getX() + v2.getX(), this.getY() + v2.getY());
+        throw new UnsupportedOperationException("Not Implemented");
     }
 
     /***
@@ -77,7 +75,7 @@ public class Vector {
      * @return A string representation of this vector in cartesian coordinates
      */
     public String asCartesian(){
-        return String.format(CARTESIAN_FORMAT, this.getX(), this.getY());
+        throw new UnsupportedOperationException("Not Implemented");
     }
 
     /***
@@ -85,48 +83,7 @@ public class Vector {
      * @return This vector as a string in polar coordinates
      */
     public String asPolar(){
-//        return "<" + this.getR() + ", ∠" + this.getTheta() + ">";
-        return String.format(POLAR_FORMAT, this.getR(), this.getTheta());
-    }
-
-    /***
-     * Get the X value of this vector
-     * @return The X value of this vector
-     */
-    public double getX(){
-        return this.x;
-    }
-
-    /***
-     * Get the Y value of this vector
-     * @return The Y value of this vector
-     */
-    public double getY(){
-        return this.y;
-    }
-
-    /***
-     * Get the R value of this polar vector
-     * @return The R value of this vector
-     */
-    public double getR(){
-        return Math.sqrt(this.x * this.x + this.y * this.y);
-    }
-
-    /****
-     * Get the Theta value of this polar vector
-     * @return The Theta value of this vector
-     */
-    public double getTheta(){
-        return Math.atan(this.y / this.x);
-    }
-
-    @Override
-    public boolean equals(Object o){
-        if (o instanceof  Vector){
-            Vector v = (Vector)o;
-            return v.getX() == this.getX() && v.getY() == this.getY();
-        } else return false;
+        throw new UnsupportedOperationException("Not Implemented");
     }
 }
 
