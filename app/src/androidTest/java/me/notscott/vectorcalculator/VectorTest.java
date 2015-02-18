@@ -15,92 +15,110 @@ public class VectorTest extends TestCase {
     public void testCartesianCreation(){
         double x = 10.0, y = 10.0;
         Vector v = Vector.fromCartesian(x ,y);
-        assertEquals("Error: cartesian -> cartesian", v.asCartesian(), String.format(Vector.CARTESIAN_FORMAT, x, y));
+        assert(v.getX() == x && v.getY() == y);
     }
 
-    /****
-     * Test creating a Vector from Polar coordinates
+    /***
+     * Test creating a vector from Polar coordinates
      */
     public void testPolarCreation(){
-        double r = 10.0, theta = .67;
-        Vector v = Vector.fromPolar(r ,theta);
-        assertEquals("Error polar -> polar", v.asPolar(), String.format(Vector.POLAR_FORMAT, r, theta));
+        double r = 5.55, t = .15;
+        Vector v = Vector.fromPolar(r, t);
+        assert(v.getR() == r && v.getTheta() == t);
     }
 
     /***
-     * Unnecessary?
+     * Test getting output in cartesian coordinates
      */
-    public void testCartesianToPolar(){
-        double x = 10.0, y = 10.0;
-        double r = Math.sqrt(x * x + y * y);
-        double theta = Math.atan(y/x);
-        Vector v = Vector.fromCartesian(x ,y);
-        assertEquals("Error cartesian -> polar", v.asPolar(), String.format(Vector.POLAR_FORMAT, r, theta));
+    public void testCartesianOutput(){
+        double x = 4.5, y = -5.2;
+        Vector v = Vector.fromCartesian(x, y);
+        String expected = String.format(Vector.CARTESIAN_FORMAT, x, y);
+        assertEquals(v.asCartesian(), expected);
     }
 
     /***
-     * Unnecessary?
+     * Test getting output in polar coordinates
+     */
+    public void testPolarOutput(){
+        double r = 5.1, t = .14;
+        Vector v = Vector.fromPolar(r, t);
+        String expected = String.format(Vector.POLAR_FORMAT, r, t);
+        assertEquals(v.asPolar(), expected);
+    }
+
+    /***
+     * Test to validate that a vector entered in polar coordinates results in what we would
+     * expect if it had been entered as a cartesian vector. Allows us to test operations in a single
+     * coordinate system.
      */
     public void testPolarToCartesian(){
-        double r = 10, theta = 0.67;
-        double x = r * Math.cos(theta);
-        double y = r * Math.sin(theta);
-        Vector v = Vector.fromPolar(r, theta);
-        assertEquals("Error polar -> cartesian", v.asCartesian(), String.format(Vector.CARTESIAN_FORMAT, x, y));
+        double r = 5.6, t = .67;
+        double x_expected = r*Math.cos(t),
+               y_expected = r*Math.sin(t);
+
+        Vector v = Vector.fromPolar(r, t);
+        assert(v.getX() == x_expected && v.getY() == y_expected);
     }
 
     /***
-     * Test adding 3 vectors created using polar coordinates
+     * Test to validate that a vector entered as cartesian results in what we would
+     * expect if it had been entered as a polar vector. Allows us to test operations in a single
+     * coordinate system.
      */
-    public void testPolarAddition(){
-        double r1 = 5, r2 = 3, r3 = 7;
-        double t1 = .3, t2 = .09, t3 = .23;
-
-        Vector v1 = Vector.fromPolar(r1, t1),
-               v2 = Vector.fromPolar(r2, t2),
-               v3 = Vector.fromPolar(r3, t3);
+    public void testCartesianToPolar(){
+        double x = 14.5, y = 15.1;
+        double r_expected = Math.sqrt(x*x + y*y),
+               t_expected = Math.atan(y/x);
+        Vector v = Vector.fromCartesian(x, y);
+        assert(v.getR() == r_expected && v.getTheta() == t_expected);
     }
 
     /***
-     * Test adding 3 vectors created using cartesian coordinates
+     * Test addition of 3 vectors
      */
-    public void testCartesianAddition(){
+    public void testAddVectors(){
         double x1 = 5.0, x2 = 3.6, x3 = 19.5;
         double y1 = 8.9, y2 = 7.2, y3 = 53.2;
         Vector v1 = Vector.fromCartesian(x1, y1),
-               v2 = Vector.fromCartesian(x2, y2),
-               v3 = Vector.fromCartesian(x3, y3);
+                v2 = Vector.fromCartesian(x2, y2),
+                v3 = Vector.fromCartesian(x3, y3);
 
         Vector result = v1.add(v2).add(v3);
         Vector expected = Vector.fromCartesian(x1 + x2 + x3, y1 + y2 + y3);
-        assertEquals("Error: Addition of Cartesian Vectors", result, expected);
+        assertEquals(result, expected);
     }
 
     /***
-     * Test taking the scalar product of 2 vectors created using polar coordinates
+     * Test scalar product of 2 vectors
      */
-    public void testPolarScalarProduct(){
-        fail("Unimplemented");
+    public void testScalarProduct(){
+        double x1 = 4.8, x2 = 12.5,
+               y1 = 1.8, y2 = 10.1;
+
+        Vector v1 = Vector.fromCartesian(x1, y1),
+               v2 = Vector.fromCartesian(x2, y2);
+
+        double expected = x1*x2 +y1*y2,
+               result   = v1.scalarProduct(v2);
+
+        assertEquals(result, expected);
     }
 
     /***
-     * Test taking the scalar product of 2 vectors created using cartesian coordinates
+     * Test cross product of 2 vectors
      */
-    public void testCartesianScalarProduct(){
-        fail("Unimplemented");
-    }
+    public void testVectorProduct(){
+        double x1 = 14.5, x2 = 11.5,
+               y1 = 19.3, y2 = 17.2;
 
-    /****
-     * Test taking the vector product of 2 vectors created using polar coordinates
-     */
-    public void testPolarVectorProduct(){
-        fail("Unimplemented");
-    }
+        Vector v1 = Vector.fromCartesian(x1, y1),
+               v2 = Vector.fromCartesian(x2, y2);
 
-    /****
-     * Test taking the vector product of 2 vectors created using cartesian coordinates
-     */
-    public void testCartesianVectorProduct(){
-        fail("Unimplemented");
+        double expected = x1*y2 -x2*y1,
+               result = v1.crossProduct(v2);
+
+        assertEquals(expected, result);
+
     }
 }
