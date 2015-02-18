@@ -30,7 +30,6 @@ public class UIUnitTest extends ActivityUnitTestCase<HomeActivity> {
     public void testRadioButtonPreconditions() {
         startActivity(launchIntent, null, null);
 
-        // Testing
         final RadioButton rdbCartesian = (RadioButton) getActivity().findViewById(R.id.rdbCartesian);
         final RadioButton rdbPolar = (RadioButton) getActivity().findViewById(R.id.rdbPolar);
 
@@ -65,7 +64,7 @@ public class UIUnitTest extends ActivityUnitTestCase<HomeActivity> {
         startActivity(launchIntent, null, null);
 
         final View thirdVector = getActivity().findViewById(R.id.thirdVector);
-        final Button addVector = (Button) getActivity().findViewById(R.id.btn_add_vector);
+        final Button addVector = (Button) getActivity().findViewById(R.id.btnAddVector);
 
         assertEquals("Third Vector Not Hidden", thirdVector.getVisibility(), View.GONE);
         assertEquals("Add Vector Hidden", addVector.getVisibility(), View.VISIBLE);

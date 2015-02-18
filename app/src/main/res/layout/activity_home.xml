@@ -205,7 +205,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/new_vector_label"
-                    android:id="@+id/btn_add_vector"
+                    android:id="@+id/btnAddVector"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="25dp"
                     android:onClick="addThirdVectorClick" />
@@ -216,7 +216,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_compute"
-            android:id="@+id/button"
+            android:id="@+id/btnCompute"
             android:layout_gravity="center_horizontal"
             android:onClick="computeResult" />
 

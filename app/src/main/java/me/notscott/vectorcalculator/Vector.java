@@ -120,5 +120,13 @@ public class Vector {
     public double getTheta(){
         return Math.atan(this.y / this.x);
     }
+
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof  Vector){
+            Vector v = (Vector)o;
+            return v.getX() == this.getX() && v.getY() == this.getY();
+        } else return false;
+    }
 }
 

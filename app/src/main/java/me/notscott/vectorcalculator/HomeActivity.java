@@ -8,6 +8,8 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.security.InvalidParameterException;
+
 public class HomeActivity extends Activity {
     private AdapterView.OnItemSelectedListener itemClickListener;
     private Operation currentOperation;
@@ -69,21 +71,25 @@ public class HomeActivity extends Activity {
     private void changeVisibility(Operation o){
         switch (o){
             case ADDITION:
-                findViewById(R.id.btn_add_vector).setVisibility(View.VISIBLE);
+                findViewById(R.id.btnAddVector).setVisibility(View.VISIBLE);
                 findViewById(R.id.thirdVector).setVisibility(View.GONE);
                 break;
             default:
-                findViewById(R.id.btn_add_vector).setVisibility(View.GONE);
+                findViewById(R.id.btnAddVector).setVisibility(View.GONE);
                 findViewById(R.id.thirdVector).setVisibility(View.GONE);
                 break;
         }
     }
 
     public void addThirdVectorClick(View v){
-        if(v.getId() == R.id.btn_add_vector){
+        if(v.getId() == R.id.btnAddVector){
             v.setVisibility(View.GONE);
             findViewById(R.id.thirdVector).setVisibility(View.VISIBLE);
         }
+    }
+
+    public Vector getInput() throws InvalidParameterException {
+        return null;
     }
 
     public void computeResult(View v){
