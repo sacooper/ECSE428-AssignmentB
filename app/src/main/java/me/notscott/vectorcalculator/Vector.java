@@ -39,7 +39,7 @@ public class Vector {
      */
     public static Vector fromPolar(double r, double theta){
         double x = r * Math.cos(theta),
-                y = r * Math.sin(theta);
+               y = r * Math.sin(theta);
         return new Vector(x, y);
     }
 
@@ -94,13 +94,13 @@ public class Vector {
 
     public double getR() { return Math.sqrt(this.x * this.x + this.y * this.y); }
 
-    public double getTheta() { return Math.atan(y/x); }
+    public double getTheta() { return Math.atan2(y, x); }
 
     @Override
     public boolean equals(Object o){
         if (o instanceof Vector){
             Vector v2 = (Vector) o;
-            return this.getX() == v2.getX() && this.getY() == v2.getY();
+            return (this.getX() == v2.getX() && this.getY() == v2.getY());
         } else return false;
     }
 }

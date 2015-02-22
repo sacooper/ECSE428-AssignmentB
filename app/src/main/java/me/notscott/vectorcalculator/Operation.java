@@ -35,4 +35,8 @@ public enum Operation {
             default: return null;
         }
     }
+
+    public int getValue() {
+        return value;
+    }
 }

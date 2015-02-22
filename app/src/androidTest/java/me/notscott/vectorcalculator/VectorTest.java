@@ -75,7 +75,8 @@ public class VectorTest extends TestCase {
     }
 
     /***
-     * Test addition of 3 vectors
+     * Test addition of 3 vectors. By the nature of the code, if adding 3 vectors works,
+     * then adding 2 does as well.
      */
     public void testAddVectors(){
         double x1 = 5.0, x2 = 3.6, x3 = 19.5;
@@ -119,6 +120,5 @@ public class VectorTest extends TestCase {
                result = v1.crossProduct(v2);
 
         assertEquals(expected, result);
-
     }
 }

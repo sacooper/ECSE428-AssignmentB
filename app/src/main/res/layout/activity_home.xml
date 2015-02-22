@@ -108,7 +108,8 @@
                     android:maxLines="1"
                     android:singleLine="true"
                     android:textIsSelectable="false"
-                    android:nextFocusDown="@+id/vector1_b"/>
+                    android:nextFocusDown="@+id/vector1_b"
+                    android:numeric="signed|decimal" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -122,7 +123,8 @@
                     android:maxLines="1"
                     android:singleLine="true"
                     android:textIsSelectable="false"
-                    android:nextFocusDown="@+id/vector2_a"/>
+                    android:nextFocusDown="@+id/vector2_a"
+                    android:numeric="signed|decimal" />
             </LinearLayout>
 
             <LinearLayout
@@ -143,7 +145,8 @@
                     android:maxLines="1"
                     android:singleLine="true"
                     android:textIsSelectable="false"
-                    android:nextFocusDown="@+id/vector2_b"/>
+                    android:nextFocusDown="@+id/vector2_b"
+                    android:numeric="signed|decimal" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -156,7 +159,8 @@
                     android:hint="@string/hint_y"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:textIsSelectable="false" />
+                    android:textIsSelectable="false"
+                    android:numeric="signed|decimal" />
             </LinearLayout>
 
             <LinearLayout
@@ -178,7 +182,8 @@
                     android:hint="@string/hint_x"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:textIsSelectable="false" />
+                    android:textIsSelectable="false"
+                    android:numeric="signed|decimal" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -191,7 +196,8 @@
                     android:hint="@string/hint_y"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:textIsSelectable="false" />
+                    android:textIsSelectable="false"
+                    android:numeric="signed|decimal" />
             </LinearLayout>
 
             <LinearLayout
@@ -235,7 +241,8 @@
             android:text="@string/view_label"
             android:id="@+id/btnView"
             android:layout_gravity="center_horizontal"
-            android:visibility="invisible" />
+            android:visibility="invisible"
+            android:onClick="viewGraphClick" />
 
     </LinearLayout>
 </FrameLayout>
